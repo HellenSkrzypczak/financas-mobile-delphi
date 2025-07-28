@@ -1,0 +1,16 @@
+*.~*
+*.dcu
+*.exe
+*.obj
+*.dll
+*.bpl
+__history/
+__recovery/
+*.identcache
+*.local
+*.dsk
+*.stat
+*.tds
+*.map
+*.log
+*.bak
