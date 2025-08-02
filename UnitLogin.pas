@@ -27,7 +27,6 @@ type
     Label2: TLabel;
     editEmail: TEdit;
     editSenha: TEdit;
-    Label3: TLabel;
     lblCriarConta: TLabel;
     LayoutNovaConta: TLayout;
     imgIconPou: TImage;
@@ -39,6 +38,11 @@ type
     lblAcessarConta: TLabel;
     edtEmail: TEdit;
     edtConfirmeSenha: TEdit;
+    procedure btnAcessarLoginClick(Sender: TObject);
+    procedure btnCriarContaClick(Sender: TObject);
+    procedure lblCriarContaClick(Sender: TObject);
+    procedure lblAcessarContaClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
   private
     { Private declarations }
   public
@@ -51,5 +55,30 @@ var
 implementation
 
 {$R *.fmx}
+
+procedure TfrmLogin.btnAcessarLoginClick(Sender: TObject);
+begin
+        TabControl.GotoVisibleTab(1);
+end;
+
+procedure TfrmLogin.btnCriarContaClick(Sender: TObject);
+begin
+      TabControl.GotoVisibleTab(2);
+end;
+
+procedure TfrmLogin.FormShow(Sender: TObject);
+begin
+      TabControl.ActiveTab := TabBoasVindas;
+end;
+
+procedure TfrmLogin.lblAcessarContaClick(Sender: TObject);
+begin
+      TabControl.GotoVisibleTab(1);
+end;
+
+procedure TfrmLogin.lblCriarContaClick(Sender: TObject);
+begin
+      TabControl.GotoVisibleTab(2);
+end;
 
 end.

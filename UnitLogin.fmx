@@ -2,41 +2,44 @@ object frmLogin: TfrmLogin
   Left = 0
   Top = 0
   Caption = 'Poupei'
-  ClientHeight = 650
+  ClientHeight = 648
   ClientWidth = 400
   Fill.Kind = Solid
   Position = MainFormCenter
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
+  OnShow = FormShow
   DesignerMasterStyle = 0
   object TabControl: TTabControl
     Align = Client
     Size.Width = 400.000000000000000000
-    Size.Height = 650.000000000000000000
+    Size.Height = 648.000000000000000000
     Size.PlatformDefault = False
     TabIndex = 2
     TabOrder = 0
-    TabPosition = PlatformDefault
+    TabPosition = None
     Sizes = (
       400s
-      624s
+      648s
       400s
-      624s
+      648s
       400s
-      624s)
+      648s)
     object TabBoasVindas: TTabItem
       CustomIcon = <
         item
         end>
       TextSettings.Trimming = None
       IsSelected = False
-      Size.Width = 99.000000000000000000
-      Size.Height = 26.000000000000000000
+      Size.Width = 8.000000000000000000
+      Size.Height = 8.000000000000000000
       Size.PlatformDefault = False
       StyleLookup = ''
       TabOrder = 0
       Text = 'TabBoasVindas'
+      ExplicitSize.cx = 8.000000000000000000
+      ExplicitSize.cy = 8.000000000000000000
       object LayoutBoasVindas: TLayout
         Align = Center
         Size.Width = 286.000000000000000000
@@ -213,6 +216,7 @@ object frmLogin: TfrmLogin
             TextSettings.Font.StyleExt = {00060000000000000004000000}
             TextSettings.FontColor = claWhite
             TextSettings.Trimming = None
+            OnClick = btnAcessarLoginClick
           end
         end
         object reactCriarConta: TRectangle
@@ -237,6 +241,7 @@ object frmLogin: TfrmLogin
             TextSettings.Font.StyleExt = {00060000000000000004000000}
             TextSettings.FontColor = xFF4EB939
             TextSettings.Trimming = None
+            OnClick = btnCriarContaClick
           end
         end
         object lblBoasVindas: TLabel
@@ -258,17 +263,19 @@ object frmLogin: TfrmLogin
         end>
       TextSettings.Trimming = None
       IsSelected = False
-      Size.Width = 68.000000000000000000
-      Size.Height = 26.000000000000000000
+      Size.Width = 8.000000000000000000
+      Size.Height = 8.000000000000000000
       Size.PlatformDefault = False
       StyleLookup = ''
       TabOrder = 0
       Text = 'TabLogin'
+      ExplicitSize.cx = 8.000000000000000000
+      ExplicitSize.cy = 8.000000000000000000
       object LayoutLogin: TLayout
         Align = Center
         Margins.Bottom = 30.000000000000000000
         Size.Width = 286.000000000000000000
-        Size.Height = 402.000000000000000000
+        Size.Height = 450.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 0
         object imgIconPoupei: TImage
@@ -423,7 +430,7 @@ object frmLogin: TfrmLogin
         object Rectangle2: TRectangle
           Align = Bottom
           Fill.Color = xFF4EB939
-          Position.Y = 352.000000000000000000
+          Position.Y = 400.000000000000000000
           Size.Width = 286.000000000000000000
           Size.Height = 50.000000000000000000
           Size.PlatformDefault = False
@@ -455,47 +462,36 @@ object frmLogin: TfrmLogin
           TextSettings.Font.StyleExt = {00060000000000000004000000}
           TextSettings.HorzAlign = Center
           Text = 'Acessar sua conta.'
-          TabOrder = 4
+          TabOrder = 3
         end
         object editEmail: TEdit
           Touch.InteractiveGestures = [LongTap, DoubleTap]
           Align = Bottom
-          TabOrder = 6
-          Position.Y = 242.000000000000000000
+          TabOrder = 5
+          Position.Y = 271.000000000000000000
           Margins.Bottom = 30.000000000000000000
           Size.Width = 286.000000000000000000
-          Size.Height = 25.000000000000000000
+          Size.Height = 35.000000000000000000
           Size.PlatformDefault = False
           TextPrompt = 'E-mail'
         end
         object editSenha: TEdit
           Touch.InteractiveGestures = [LongTap, DoubleTap]
           Align = Bottom
-          TabOrder = 5
-          Position.Y = 297.000000000000000000
+          TabOrder = 4
+          Position.Y = 336.000000000000000000
           Margins.Bottom = 30.000000000000000000
           Size.Width = 286.000000000000000000
-          Size.Height = 25.000000000000000000
+          Size.Height = 34.000000000000000000
           Size.PlatformDefault = False
           TextPrompt = 'Senha'
-        end
-        object Label3: TLabel
-          StyledSettings = [Family, FontColor]
-          Margins.Top = 20.000000000000000000
-          Position.X = 4.000000000000000000
-          Position.Y = 216.000000000000000000
-          Size.Width = 286.000000000000000000
-          Size.Height = 25.000000000000000000
-          Size.PlatformDefault = False
-          TextSettings.Font.Size = 14.000000000000000000
-          Text = 'E-mail'
-          TabOrder = 3
         end
       end
       object lblCriarConta: TLabel
         Align = Bottom
         StyledSettings = [Family]
-        Position.Y = 576.000000000000000000
+        HitTest = True
+        Position.Y = 600.000000000000000000
         Size.Width = 400.000000000000000000
         Size.Height = 48.000000000000000000
         Size.PlatformDefault = False
@@ -504,6 +500,7 @@ object frmLogin: TfrmLogin
         TextSettings.HorzAlign = Center
         Text = 'N'#227'o tem uma conta? Crie agora.'
         TabOrder = 4
+        OnClick = lblCriarContaClick
       end
     end
     object TabNovaConta: TTabItem
@@ -512,16 +509,18 @@ object frmLogin: TfrmLogin
         end>
       TextSettings.Trimming = None
       IsSelected = True
-      Size.Width = 98.000000000000000000
-      Size.Height = 26.000000000000000000
+      Size.Width = 8.000000000000000000
+      Size.Height = 8.000000000000000000
       Size.PlatformDefault = False
       StyleLookup = ''
       TabOrder = 0
       Text = 'TabNovaConta'
+      ExplicitSize.cx = 8.000000000000000000
+      ExplicitSize.cy = 8.000000000000000000
       object LayoutNovaConta: TLayout
         Align = Center
         Size.Width = 286.000000000000000000
-        Size.Height = 457.000000000000000000
+        Size.Height = 479.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 0
         object imgIconPou: TImage
@@ -676,7 +675,7 @@ object frmLogin: TfrmLogin
         object RectNovaConta: TRectangle
           Align = Bottom
           Fill.Color = xFF4EB939
-          Position.Y = 407.000000000000000000
+          Position.Y = 429.000000000000000000
           Size.Width = 286.000000000000000000
           Size.Height = 50.000000000000000000
           Size.PlatformDefault = False
@@ -702,7 +701,7 @@ object frmLogin: TfrmLogin
           Margins.Top = 10.000000000000000000
           Position.Y = 123.000000000000000000
           Size.Width = 286.000000000000000000
-          Size.Height = 88.000000000000000000
+          Size.Height = 70.000000000000000000
           Size.PlatformDefault = False
           TextSettings.Font.Size = 26.000000000000000000
           TextSettings.Font.StyleExt = {00060000000000000004000000}
@@ -714,7 +713,7 @@ object frmLogin: TfrmLogin
           Touch.InteractiveGestures = [LongTap, DoubleTap]
           Align = Bottom
           TabOrder = 7
-          Position.Y = 187.000000000000000000
+          Position.Y = 209.000000000000000000
           Margins.Bottom = 30.000000000000000000
           Size.Width = 286.000000000000000000
           Size.Height = 25.000000000000000000
@@ -725,7 +724,7 @@ object frmLogin: TfrmLogin
           Touch.InteractiveGestures = [LongTap, DoubleTap]
           Align = Bottom
           TabOrder = 5
-          Position.Y = 297.000000000000000000
+          Position.Y = 319.000000000000000000
           Margins.Bottom = 30.000000000000000000
           Size.Width = 286.000000000000000000
           Size.Height = 25.000000000000000000
@@ -736,7 +735,7 @@ object frmLogin: TfrmLogin
           Touch.InteractiveGestures = [LongTap, DoubleTap]
           Align = Bottom
           TabOrder = 6
-          Position.Y = 242.000000000000000000
+          Position.Y = 264.000000000000000000
           Margins.Bottom = 30.000000000000000000
           Size.Width = 286.000000000000000000
           Size.Height = 25.000000000000000000
@@ -747,7 +746,7 @@ object frmLogin: TfrmLogin
           Touch.InteractiveGestures = [LongTap, DoubleTap]
           Align = Bottom
           TabOrder = 4
-          Position.Y = 352.000000000000000000
+          Position.Y = 374.000000000000000000
           Margins.Bottom = 30.000000000000000000
           Size.Width = 286.000000000000000000
           Size.Height = 25.000000000000000000
@@ -758,7 +757,8 @@ object frmLogin: TfrmLogin
       object lblAcessarConta: TLabel
         Align = Bottom
         StyledSettings = [Family]
-        Position.Y = 576.000000000000000000
+        HitTest = True
+        Position.Y = 600.000000000000000000
         Size.Width = 400.000000000000000000
         Size.Height = 48.000000000000000000
         Size.PlatformDefault = False
@@ -767,6 +767,7 @@ object frmLogin: TfrmLogin
         TextSettings.HorzAlign = Center
         Text = 'J'#225' tem uma conta? Acesse agora.'
         TabOrder = 4
+        OnClick = lblAcessarContaClick
       end
     end
   end
