@@ -7,7 +7,7 @@ uses
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Objects,
   FMX.Controls.Presentation, FMX.StdCtrls, FMX.Layouts, FMX.TabControl,
   FMX.ListView.Types, FMX.ListView.Appearances, FMX.ListView.Adapters.Base,
-  FMX.ListView;
+  FMX.ListView, System.Math.Vectors, FMX.Controls3D, FMX.Layers3D;
 
 type
   TFrmPrincipal = class(TForm)
@@ -22,7 +22,7 @@ type
     Image3: TImage;
     lblReceitas: TLabel;
     lblValorReceitas: TLabel;
-    Layout2: TLayout;
+    lytDespesas: TLayout;
     Image4: TImage;
     lblDespesas: TLabel;
     Label2: TLabel;
@@ -35,10 +35,14 @@ type
     Layout3: TLayout;
     RectAbas: TRectangle;
     Image5: TImage;
-    Image6: TImage;
-    Image7: TImage;
-    Image8: TImage;
+    imgAbaHome: TImage;
+    imgAbaLanc: TImage;
+    imgAbaConfig: TImage;
+    Layout3D1: TLayout3D;
+    Layout2: TLayout;
     procedure FormShow(Sender: TObject);
+    procedure Label3Click(Sender: TObject);
+    procedure imgAbaConfigClick(Sender: TObject);
   private
     procedure AddLancamentoLv(id_lancamento: integer; descricao, categoria,
       dt: string; valor: double);
@@ -55,6 +59,8 @@ implementation
 
 {$R *.fmx}
 
+uses UnitLancamento, UnitConfig;
+
 procedure TFrmPrincipal.AddLancamentoLv(id_lancamento: integer;
                                         descricao, categoria,
                                         dt: string;
@@ -66,6 +72,7 @@ item: TListViewItem;
 begin
   item := lvLancamentos.Items.Add; //inseriu um novo item na lista e jorgo na variavel
   item.Tag := id_lancamento;   //propriedade escondida
+  item.Height := 50;
 
   TListItemtext(item.Objects.FindDrawable('txtDescricao')).Text := descricao;
   TListItemtext(item.Objects.FindDrawable('txtCategoria')).Text := categoria;
@@ -76,6 +83,22 @@ end;
 procedure TFrmPrincipal.FormShow(Sender: TObject);
 begin
   ListarUltLancamentos;
+end;
+
+procedure TFrmPrincipal.imgAbaConfigClick(Sender: TObject);
+begin
+     if not Assigned(FrmConfig) then
+      Application.CreateForm(TFrmConfig, FrmConfig);
+
+      FrmConfig.Show;
+end;
+
+procedure TFrmPrincipal.Label3Click(Sender: TObject);
+begin
+     if not Assigned(FrmLancamento) then
+      Application.CreateForm(TFrmLancamento, FrmLancamento);
+
+     FrmLancamento.Show;
 end;
 
 procedure TFrmPrincipal.ListarUltLancamentos;

@@ -286,6 +286,14 @@
             <Form>FrmPrincipal</Form>
             <FormType>fmx</FormType>
         </DCCReference>
+        <DCCReference Include="UnitLancamento.pas">
+            <Form>frmLancamento</Form>
+            <FormType>fmx</FormType>
+        </DCCReference>
+        <DCCReference Include="UnitConfig.pas">
+            <Form>frmConfig</Form>
+            <FormType>fmx</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
